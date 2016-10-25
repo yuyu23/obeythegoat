@@ -8,6 +8,5 @@ class Item(models.Model):
 	list = models.ForeignKey(
 		List,
 		default=None,
-		blank=True,
 		null=True,
 	)
