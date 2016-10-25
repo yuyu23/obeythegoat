@@ -10,11 +10,11 @@ class Migration(migrations.Migration):
         ('lists', '0002_item_text'),
     ]
 
-    operations = [
-        migrations.CreateModel(
-            name='List',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
-            ],
-        ),
-    ]
+    #operations = [
+        #migrations.CreateModel(
+            #name='List',
+           # fields=[
+            #    ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
+           # ],
+       # ),
+ #   ]
