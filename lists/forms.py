@@ -1,6 +1,5 @@
-from django.core.exceptions import ValidationError
-
 from django import forms
+from django.core.exceptions import ValidationError
 
 from lists.models import Item
 
@@ -22,7 +21,12 @@ class ItemForm(forms.models.ModelForm):
             'text': {'required': EMPTY_ITEM_ERROR}
         }
 
-		
+
+    def save(self, for_list):
+        self.instance.list = for_list
+        return super().save()
+
+
 class ExistingListItemForm(ItemForm):
 
     def __init__(self, for_list, *args, **kwargs):
@@ -38,6 +42,6 @@ class ExistingListItemForm(ItemForm):
             self._update_errors(e)
 
 
-    def save(self, for_list):
-        self.instance.list = for_list
-        return super().save()
+
+    def save(self):
+        return forms.models.ModelForm.save(self)
